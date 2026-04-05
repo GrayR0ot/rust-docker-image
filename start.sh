@@ -12,6 +12,19 @@ if [ "$SERVER_UPDATE_ON_START" = "1" ]; then
     steamcmd +force_install_dir "$INSTALL_DIR" +login anonymous +app_update "$RUST_APP_ID" -beta "$SERVER_BRANCH" validate +quit
 fi
 
+# --- Install/Update Oxide (uMod) ---
+if [ "$OXIDE_ENABLED" = "1" ]; then
+    echo "[RUST] Installing/updating Oxide..."
+    OXIDE_URL="https://umod.org/games/rust/download"
+    OXIDE_TMP=$(mktemp -d)
+    curl -fsSL -o "$OXIDE_TMP/oxide.zip" "$OXIDE_URL"
+    unzip -o "$OXIDE_TMP/oxide.zip" -d "$OXIDE_TMP"
+    rm -f "$OXIDE_TMP/oxide.zip"
+    cp -rf "$OXIDE_TMP/"* "$INSTALL_DIR/"
+    rm -rf "$OXIDE_TMP"
+    echo "[RUST] Oxide installed."
+fi
+
 # --- Start server ---
 cd "$INSTALL_DIR"
 chmod +x ./RustDedicated

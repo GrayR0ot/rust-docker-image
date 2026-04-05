@@ -17,6 +17,8 @@ RUN dpkg --add-architecture i386 \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         steamcmd \
         ca-certificates \
+        curl \
+        unzip \
         gettext-base \
     && rm -rf /var/lib/apt/lists/*
 
@@ -39,7 +41,7 @@ ENV SERVER_NAME="Rust Server" \
     SERVER_IDENTITY="rustserver" \
     SERVER_BRANCH="public" \
     SERVER_UPDATE_ON_START="1" \
-    OXIDE_ENABLED="0" \
+    OXIDE_ENABLED="1" \
     RUST_APP_ID="258550"
 
 # --- Directories ---

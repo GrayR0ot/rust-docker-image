@@ -48,9 +48,9 @@ echo "[RUST] Starting: $SERVER_NAME | seed=$SERVER_SEED | size=$SERVER_WORLDSIZE
     +server.identity "$SERVER_IDENTITY" \
     +server.saveinterval 300 \
     +rcon.ip 0.0.0.0 \
+    +rcon.web "$RCON_WEB" \
     +rcon.port "$RCON_PORT" \
     +rcon.password "$RCON_PASSWORD" \
-    +rcon.web "$RCON_WEB" \
     +app.listenip 0.0.0.0 \
     +app.port "$APP_PORT" \
     "$@" &

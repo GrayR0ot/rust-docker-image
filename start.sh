@@ -47,8 +47,8 @@ echo "[RUST] Starting: $SERVER_NAME | seed=$SERVER_SEED | size=$SERVER_WORLDSIZE
     +server.maxplayers "$SERVER_MAXPLAYERS" \
     +server.identity "$SERVER_IDENTITY" \
     +server.saveinterval 300 \
-    +rcon.ip 0.0.0.0 \
     +rcon.web "$RCON_WEB" \
+    +rcon.ip 0.0.0.0 \
     +rcon.port "$RCON_PORT" \
     +rcon.password "$RCON_PASSWORD" \
     +app.listenip 0.0.0.0 \

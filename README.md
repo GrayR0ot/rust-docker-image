@@ -28,6 +28,8 @@ All variables can be configured at runtime via `-e` (Docker) or `env` (Kubernete
 |---|---|---|
 | `SERVER_NAME` | `Rust Server` | Server name displayed in the server browser |
 | `SERVER_DESCRIPTION` | `A Rust Dedicated Server` | Server description |
+| `SERVER_URL` | *(empty)* | Server website URL (shown in server browser) |
+| `SERVER_BANNER_URL` | *(empty)* | Server banner/header image URL (shown in server browser) |
 | `SERVER_SEED` | `12345` | Map generation seed |
 | `SERVER_WORLDSIZE` | `3000` | Map size (1000 to 6000) |
 | `SERVER_MAXPLAYERS` | `50` | Maximum number of players |

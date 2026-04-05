@@ -30,6 +30,8 @@ RUN ln -sf /usr/games/steamcmd /usr/bin/steamcmd \
 # --- Environment variables (overridable at runtime) ---
 ENV SERVER_NAME="Rust Server" \
     SERVER_DESCRIPTION="A Rust Dedicated Server" \
+    SERVER_URL="" \
+    SERVER_BANNER_URL="" \
     SERVER_SEED="12345" \
     SERVER_WORLDSIZE="3000" \
     SERVER_MAXPLAYERS="50" \
@@ -41,7 +43,7 @@ ENV SERVER_NAME="Rust Server" \
     SERVER_IDENTITY="rustserver" \
     SERVER_BRANCH="public" \
     SERVER_UPDATE_ON_START="1" \
-    OXIDE_ENABLED="1" \
+    OXIDE_ENABLED="0" \
     RUST_APP_ID="258550"
 
 # --- Server directory ---

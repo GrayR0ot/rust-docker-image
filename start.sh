@@ -15,7 +15,7 @@ fi
 # --- Install/Update Oxide (uMod) ---
 if [ "$OXIDE_ENABLED" = "1" ]; then
     echo "[RUST] Installing/updating Oxide..."
-    OXIDE_URL="https://umod.org/games/rust/download"
+    OXIDE_URL="https://umod.org/games/rust/download/develop"
     OXIDE_TMP=$(mktemp -d)
     curl -fsSL -o "$OXIDE_TMP/oxide.zip" "$OXIDE_URL"
     unzip -o "$OXIDE_TMP/oxide.zip" -d "$OXIDE_TMP"
@@ -40,6 +40,8 @@ echo "[RUST] Starting: $SERVER_NAME | seed=$SERVER_SEED | size=$SERVER_WORLDSIZE
     +server.queryport "$SERVER_PORT" \
     +server.hostname "$SERVER_NAME" \
     +server.description "$SERVER_DESCRIPTION" \
+    +server.url "$SERVER_URL" \
+    +server.headerimage "$SERVER_BANNER_URL" \
     +server.seed "$SERVER_SEED" \
     +server.worldsize "$SERVER_WORLDSIZE" \
     +server.maxplayers "$SERVER_MAXPLAYERS" \

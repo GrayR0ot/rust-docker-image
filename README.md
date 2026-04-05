@@ -12,7 +12,7 @@ docker run -d \
   -p 28015:28015/udp \
   -p 28016:28016/tcp \
   -p 28082:28082/tcp \
-  -v rust-data:/data/server \
+  -v rust-data:/server \
   -e SERVER_NAME="My Rust Server" \
   -e RCON_PASSWORD="a_real_password" \
   rust-server
@@ -61,12 +61,12 @@ All variables can be configured at runtime via `-e` (Docker) or `env` (Kubernete
 
 | Path | Description |
 |---|---|
-| `/data/server` | Server installation directory (world, saves, config, Oxide plugins) |
+| `/server` | Server installation directory (world, saves, config, Oxide plugins) |
 
-Mount a persistent volume on `/data/server` to preserve data between restarts:
+Mount a persistent volume on `/server` to preserve data between restarts:
 
 ```bash
--v rust-data:/data/server
+-v rust-data:/server
 ```
 
 ## 🔌 Ports
@@ -89,10 +89,10 @@ To enable Oxide (plugin framework):
 Oxide is downloaded and installed on every container startup (when enabled). Plugins go in:
 
 ```
-/data/server/oxide/plugins/
+/server/oxide/plugins/
 ```
 
-This directory is persisted via the `/data/server` volume.
+This directory is persisted via the `/server` volume.
 
 ## 🛑 Graceful Shutdown
 
@@ -122,4 +122,3 @@ All arguments passed after the image name are forwarded directly to `RustDedicat
 ```bash
 docker run ... rust-server +server.pve true +server.radiation false
 ```
-

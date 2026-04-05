@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-INSTALL_DIR="/data/server"
+INSTALL_DIR="/server"
 
 # --- Graceful shutdown ---
 trap 'echo "[RUST] Shutting down..."; kill -TERM "$PID" 2>/dev/null; wait "$PID"; exit 0' SIGTERM SIGINT

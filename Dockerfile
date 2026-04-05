@@ -44,19 +44,18 @@ ENV SERVER_NAME="Rust Server" \
     OXIDE_ENABLED="1" \
     RUST_APP_ID="258550"
 
-# --- Directories ---
-WORKDIR /data
+# --- Server directory ---
+RUN mkdir -p /server && chown steam:steam /server
 
-RUN mkdir -p /data/server \
-    && chown -R steam:steam /data
+WORKDIR /server
 
-# --- Copy startup script (outside /data to avoid volume conflicts) ---
+# --- Copy startup script (outside /server to avoid volume conflicts) ---
 RUN mkdir -p /opt/rust && chown steam:steam /opt/rust
 COPY --chown=steam:steam start.sh /opt/rust/start.sh
 RUN chmod +x /opt/rust/start.sh
 
 # --- Declare persistent volume ---
-VOLUME ["/data/server"]
+VOLUME ["/server"]
 
 
 # --- Graceful shutdown ---

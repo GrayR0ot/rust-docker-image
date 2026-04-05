@@ -50,9 +50,10 @@ WORKDIR /data
 RUN mkdir -p /data/server \
     && chown -R steam:steam /data
 
-# --- Copy startup script ---
-COPY --chown=steam:steam start.sh /data/start.sh
-RUN chmod +x /data/start.sh
+# --- Copy startup script (outside /data to avoid volume conflicts) ---
+RUN mkdir -p /opt/rust && chown steam:steam /opt/rust
+COPY --chown=steam:steam start.sh /opt/rust/start.sh
+RUN chmod +x /opt/rust/start.sh
 
 # --- Declare persistent volume ---
 VOLUME ["/data/server"]
@@ -64,4 +65,4 @@ STOPSIGNAL SIGTERM
 # --- Run as unprivileged 'steam' user ---
 USER steam
 
-ENTRYPOINT ["/data/start.sh"]
+ENTRYPOINT ["/opt/rust/start.sh"]

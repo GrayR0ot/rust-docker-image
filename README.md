@@ -73,11 +73,11 @@ Mount a persistent volume on `/server` to preserve data between restarts:
 
 ## 🔌 Ports
 
-| Port | Protocol | Description |
-|---|---|---|
+| Port    | Protocol | Description |
+|---------|---|---|
 | `28015` | UDP | Game port |
 | `28016` | TCP | RCON |
-| `28016` | UDP | Query |
+| `28017` | UDP | Query |
 | `28082` | TCP | Rust+ Companion App |
 
 ## 🧩 Oxide / uMod

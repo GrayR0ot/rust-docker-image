@@ -37,7 +37,7 @@ echo "[RUST] Starting: $SERVER_NAME | seed=$SERVER_SEED | size=$SERVER_WORLDSIZE
     -batchmode -nographics \
     +server.ip 0.0.0.0 \
     +server.port "$SERVER_PORT" \
-    +server.queryport "$SERVER_PORT" \
+    +server.queryport "$QUERY_PORT" \
     +server.hostname "$SERVER_NAME" \
     +server.description "$SERVER_DESCRIPTION" \
     +server.url "$SERVER_URL" \

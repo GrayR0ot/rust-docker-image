@@ -37,6 +37,7 @@ ENV SERVER_NAME="Rust Server" \
     SERVER_MAXPLAYERS="50" \
     SERVER_PORT="28015" \
     RCON_PORT="28016" \
+    QUERY_PORT="28017" \
     RCON_PASSWORD="changeme" \
     RCON_WEB="1" \
     APP_PORT="28082" \

@@ -42,6 +42,7 @@ echo "[RUST] Starting: $SERVER_NAME | seed=$SERVER_SEED | size=$SERVER_WORLDSIZE
     +server.description "$SERVER_DESCRIPTION" \
     +server.url "$SERVER_URL" \
     +server.headerimage "$SERVER_BANNER_URL" \
+    ${SERVER_LEVELURL:++server.levelurl "$SERVER_LEVELURL"} \
     +server.seed "$SERVER_SEED" \
     +server.worldsize "$SERVER_WORLDSIZE" \
     +server.maxplayers "$SERVER_MAXPLAYERS" \

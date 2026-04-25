@@ -32,6 +32,7 @@ ENV SERVER_NAME="Rust Server" \
     SERVER_DESCRIPTION="A Rust Dedicated Server" \
     SERVER_URL="" \
     SERVER_BANNER_URL="" \
+    SERVER_LEVELURL="" \
     SERVER_SEED="12345" \
     SERVER_WORLDSIZE="3000" \
     SERVER_MAXPLAYERS="50" \

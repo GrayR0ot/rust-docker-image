@@ -34,6 +34,7 @@ All variables can be configured at runtime via `-e` (Docker) or `env` (Kubernete
 | `SERVER_WORLDSIZE` | `3000` | Map size (1000 to 6000) |
 | `SERVER_MAXPLAYERS` | `50` | Maximum number of players |
 | `SERVER_IDENTITY` | `rustserver` | Server identity name (save folder) |
+| `SERVER_LEVELURL` | *(empty)* | Custom map URL (e.g. from RustMaps). If set, the server loads this map instead of generating one from seed/size |
 
 ### Network
 

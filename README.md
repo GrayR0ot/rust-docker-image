@@ -53,6 +53,7 @@ All variables can be configured at runtime via `-e` (Docker) or `env` (Kubernete
 | `SERVER_UPDATE_ON_START` | `1` | Update the server via SteamCMD on startup (`1` = yes, `0` = no) |
 | `SERVER_BRANCH` | `public` | Steam branch to use (`public`, `staging`, etc.) |
 | `OXIDE_ENABLED` | `0` | Install/update [Oxide (uMod)](https://umod.org/) on startup (`1` = yes, `0` = no) |
+| `CARBON_ENABLED` | `0` | Install/update [Carbon](https://carbonmod.gg/) on startup (`1` = yes, `0` = no) |
 
 ### Advanced
 
@@ -96,6 +97,22 @@ Oxide is downloaded and installed on every container startup (when enabled). Plu
 ```
 
 This directory is persisted via the `/server` volume.
+
+## 🧩 Carbon
+
+To enable [Carbon](https://carbonmod.gg/) (modern modding framework):
+
+```bash
+-e CARBON_ENABLED=1
+```
+
+Carbon is downloaded and extracted on every container startup (when enabled). Plugins go in:
+
+```
+/server/carbon/plugins/
+```
+
+> ⚠️ Oxide and Carbon are mutually exclusive — do not enable both at the same time.
 
 ## 🛑 Graceful Shutdown
 

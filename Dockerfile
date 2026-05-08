@@ -46,6 +46,7 @@ ENV SERVER_NAME="Rust Server" \
     SERVER_BRANCH="public" \
     SERVER_UPDATE_ON_START="1" \
     OXIDE_ENABLED="0" \
+    CARBON_ENABLED="0" \
     RUST_APP_ID="258550"
 
 # --- Server directory ---

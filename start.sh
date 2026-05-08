@@ -25,6 +25,17 @@ if [ "$OXIDE_ENABLED" = "1" ]; then
     echo "[RUST] Oxide installed."
 fi
 
+# --- Install/Update Carbon ---
+if [ "$CARBON_ENABLED" = "1" ]; then
+    echo "[RUST] Installing/updating Carbon..."
+    CARBON_URL="https://github.com/CarbonCommunity/Carbon/releases/download/production_build/Carbon.Linux.Release.tar.gz"
+    CARBON_TMP=$(mktemp -d)
+    curl -fsSL -o "$CARBON_TMP/carbon.tar.gz" "$CARBON_URL"
+    tar -xzf "$CARBON_TMP/carbon.tar.gz" -C "$INSTALL_DIR"
+    rm -rf "$CARBON_TMP"
+    echo "[RUST] Carbon installed."
+fi
+
 # --- Start server ---
 cd "$INSTALL_DIR"
 chmod +x ./RustDedicated
@@ -32,6 +43,10 @@ chmod +x ./RustDedicated
 export LD_LIBRARY_PATH="./RustDedicated_Data/Plugins/x86_64:.:${LD_LIBRARY_PATH:-}"
 
 echo "[RUST] Starting: $SERVER_NAME | seed=$SERVER_SEED | size=$SERVER_WORLDSIZE | max=$SERVER_MAXPLAYERS"
+
+if [ "$CARBON_ENABLED" = "1" ]; then
+  source "carbon/tools/environment.sh"
+fi
 
 ./RustDedicated \
     -batchmode -nographics \
